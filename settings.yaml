@@ -1,0 +1,46 @@
+app_name: "Web Gateway API"
+environment: "development"
+
+auth:
+  auth0_domain: 
+  auth0_audience: 
+  backend_api_key: 
+
+cors:
+  allowed_origins: 
+    - "http://localhost:3000"
+    - "https://your-frontend-domain.com"
+  allowed_methods: ["GET", "POST", "PUT", "DELETE"]
+  allowed_headers: ["*"]
+  allow_credentials: true
+
+routes:
+  - service_name: "petstore"
+    method: "GET"
+    path: "/api/pet/{pet_id}"
+    target_url: "https://petstore3.swagger.io/api/v3/pet/{pet_id}"
+    required_scopes: [] #["read:client_grants"]
+
+  - service_name: "conversations"
+    method: "GET"
+    path: "/api/{company_id}/conversations"
+    target_url: "http://127.0.0.1:4010/{company_id}/conversations"
+    required_scopes: [] #["read:conversations"]
+  
+  - service_name: "conversations"
+    method: "GET"
+    path: "/api/{company_id}/conversations/{conversation_id}/messages"
+    target_url: "http://127.0.0.1:4010/{company_id}/conversations/{conversation_id}/messages"
+    required_scopes: [] #["write:conversations"]
+  
+  - service_name: "custom"
+    method: "GET"
+    path: "/api/user-dashboard/{user_id}"
+    handler: "custom_handlers.user_dashboard"
+    required_scopes: ["read:dashboard"]
+  
+  - service_name: "custom"
+    method: "POST"
+    path: "/api/batch-update"
+    handler: "custom_handlers.batch_update"
+    required_scopes: ["write:batch"]

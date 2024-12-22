@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "simple-api-gateway-poc"
+version = "0.1.0"
+description = "A simple api gateway implementation in fastapi"
+authors = ["Jhony Rivero <jhony.rivero@outlook.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.6"
+asyncio = "^3.4.3"
+uvicorn = "^0.34.0"
+httpx = "^0.28.1"
+python-multipart = "^0.0.20"
+pyyaml = "^6.0.2"
+python-dotenv = "^1.0.1"
+typing-extensions = "^4.12.2"
+pydantic = "^2.10.4"
+pydantic-settings = "^2.7.0"
+passlib = "^1.7.4"
+python-jose = "^3.3.0"
+cryptography = "^44.0.0"
+pyjwt = "^2.10.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
